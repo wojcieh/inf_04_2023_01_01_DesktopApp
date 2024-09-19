@@ -1,0 +1,49 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MauiApp1.MainPage" Shell.NavBarIsVisible="False">
+
+
+    <Grid Padding="10" ColumnDefinitions="*, 10, *" BackgroundColor="LightSteelBlue" RowDefinitions="*,80">
+        <Frame Grid.Column="0" BorderColor="White" BackgroundColor="LightSteelBlue">
+            <Grid  ColumnDefinitions="*, 1.7*" RowDefinitions="Auto, Auto,Auto" RowSpacing="10">
+                <Label  Text="Imię" VerticalTextAlignment="Center" Padding="5"      Grid.Column="0" Grid.Row="0"/>
+                <Entry x:Name="eImie"  BackgroundColor="White"               Grid.Column="1" Grid.Row="0"/>
+                <Label Text="Nazwisko" VerticalTextAlignment="Center" Padding="5"  Grid.Column="0" Grid.Row="1"/>
+                <Entry x:Name="eNazwisko"    BackgroundColor="White"             Grid.Column="1" Grid.Row="1"/>
+                <Label Text="Stanowisko"  VerticalTextAlignment="Center" Padding="5" Grid.Column="0" Grid.Row="2"/>
+                <Picker x:Name="pStanowisko" BackgroundColor="White"                Grid.Column="1" Grid.Row="2">
+                    <Picker.ItemsSource>
+                        <x:Array Type="{x:Type x:String}">
+                            <x:String>Kierownik</x:String>
+                            <x:String>Starszy programista</x:String>
+                            <x:String>Młodszy programista</x:String>
+                            <x:String>Tester</x:String>
+                        </x:Array>
+
+                    </Picker.ItemsSource>
+                </Picker>
+            </Grid>
+        </Frame>
+        <Frame Grid.Column="2" BorderColor="White"  BackgroundColor="LightSteelBlue">
+            <Grid  ColumnDefinitions="*, 1.7*" RowDefinitions="Auto, Auto,Auto">
+                <Label VerticalTextAlignment="Center" Text="Ile znaków?" Grid.Column="0" Grid.Row="0"/>
+                <Entry  BackgroundColor="White" Grid.Column="1" Grid.Row="0" Keyboard="Numeric" x:Name="dlugosc"/>
+                   
+                <Frame Grid.Row="1" Grid.ColumnSpan=" 2" BackgroundColor="LightSteelBlue" BorderColor="LightSteelBlue">
+                    <Grid ColumnDefinitions="*,7*" RowDefinitions="*,*,*,80">
+                        <CheckBox x:Name="chLitery" Grid.Column="0" Grid.Row="0"/>
+                        <Label  VerticalTextAlignment="Center" Grid.Column="1" Grid.Row="0" Text="Małe i wielkie litery"></Label>
+                        <CheckBox x:Name="chCyfry" Grid.Column="0" Grid.Row="1" />
+                        <Label  VerticalTextAlignment="Center" Grid.Column="1" Grid.Row="1" Text="Cyfry"></Label>
+                        <CheckBox x:Name="chSpecjalne" Grid.Column="0" Grid.Row="2"/>
+                        <Label VerticalTextAlignment="Center" Grid.Column="1" Grid.Row="2" Text="Znaki Specjalne"></Label>
+                        <Button Clicked="Button_Clicked"  Grid.ColumnSpan="2" Grid.Row="3" Text="Generuj hasło" WidthRequest="200" HeightRequest="30" BackgroundColor="SteelBlue"/>
+                    </Grid>
+                </Frame>
+            </Grid>
+        </Frame>
+        <Button Clicked="Button_Clicked_1" Grid.ColumnSpan="3" Grid.Row="1" Text="Zatwierdź" WidthRequest="100" HeightRequest="30" BackgroundColor="SteelBlue"/>
+    </Grid>
+
+</ContentPage>
